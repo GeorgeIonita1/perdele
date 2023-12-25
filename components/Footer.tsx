@@ -1,28 +1,24 @@
-// todo: proper markup
+import { footerLinks } from "@/lib/utils";
+
+function iterateFooterLinks() {
+    return footerLinks.map((link: FooterLink): any => {
+        return (
+            <div className="max-md:py-4">
+                <h4 className="font-extrabold py-3">{link.title}</h4>
+                {link.lines.map((line: string): any => (
+                    <h5 className="py-2">{line}</h5>
+                ))}
+            </div>
+        )
+    })
+}
 
 function Footer() {
     return (
         <footer>
             <div className="container">
-                <div className="md:flex justify-between md:w-4/6 mx-auto py-4 max-md:*:py-3">
-                    <div className="*:py-1">
-                        <h4 className="font-bold">Support</h4>
-                        <h5>Help & Contact Us</h5>
-                        <h5>Return & Refunds</h5>
-                        <h5>Online Stores</h5>
-                    </div>
-                    <div className="*:py-1">
-                        <h4 className="font-bold">Company</h4>
-                        <h5>What we do</h5>
-                        <h5>Gift Offers</h5>
-                        <h5>F.A.Q</h5>
-                    </div>
-                    <div className="*:py-1">
-                        <h4 className="font-bold">Category</h4>
-                        <h5>Livingroom</h5>
-                        <h5>Bedroom</h5>
-                        <h5>Bathroom</h5>
-                    </div>
+                <div className="md:flex justify-between md:w-4/6 mx-auto py-4">
+                    {iterateFooterLinks()}
                 </div>
 
                 <div className="w-full h-px mx-auto bg-slate-950" />
