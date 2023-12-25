@@ -1,7 +1,6 @@
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
 
-
 function NavigationMobile() {
     return (
         <nav className="md:hidden">

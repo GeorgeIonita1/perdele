@@ -12,7 +12,6 @@ function Header() {
                 <div className="w-full h-px mx-auto bg-slate-950 max-md:hidden" />
                 <NavigationDesktop />
             </div>
-            
         </header>
     );
 }
