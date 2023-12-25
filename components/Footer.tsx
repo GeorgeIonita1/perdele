@@ -4,7 +4,7 @@ function Footer() {
     return (
         <footer>
             <div className="container">
-                <div className="flex justify-between w-4/6 mx-auto py-4">
+                <div className="md:flex justify-between md:w-4/6 mx-auto py-4 max-md:*:py-3">
                     <div className="*:py-1">
                         <h4 className="font-bold">Support</h4>
                         <h5>Help & Contact Us</h5>
@@ -25,7 +25,7 @@ function Footer() {
                     </div>
                 </div>
 
-                <div className="w-full h-px mx-auto bg-slate-950 max-md:hidden" />
+                <div className="w-full h-px mx-auto bg-slate-950" />
 
                 <div className="flex justify-between items-center py-4">
                     <small>Copyright 2023 Perdele</small>
