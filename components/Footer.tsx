@@ -1,12 +1,12 @@
 import { footerLinks } from "@/lib/utils";
 
 function iterateFooterLinks() {
-    return footerLinks.map((link: FooterLink): any => {
+    return footerLinks.map((link: FooterLink, idx: number): any => {
         return (
-            <div className="max-md:py-4">
+            <div key={idx} className="max-md:py-4">
                 <h4 className="font-extrabold py-3">{link.title}</h4>
-                {link.lines.map((line: string): any => (
-                    <h5 className="py-2">{line}</h5>
+                {link.lines.map((line: string, index: number): any => (
+                    <h5 key={index} className="py-2">{line}</h5>
                 ))}
             </div>
         )

@@ -1,8 +1,10 @@
+import SubMenu from "./SubMenu";
 import { Button } from "./ui/button";
 
 function NavigationDesktop() {
     return (
         <nav className="flex justify-center *:list-none py-4 max-md:hidden">
+            <li className="mr-10"><SubMenu /></li>
             <li><Button variant='link'>Livingroom</Button></li>
             <li><Button variant='link'>Bedroom</Button></li>
             <li><Button variant='link'>Kitchen</Button></li>
