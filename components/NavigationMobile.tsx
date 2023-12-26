@@ -1,5 +1,7 @@
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
+import { footerLinks } from "@/lib/utils";
+import Link from "next/link";
 
 function NavigationMobile() {
     return (
@@ -10,14 +12,18 @@ function NavigationMobile() {
                 </SheetTrigger>
                 <SheetContent>
                     <SheetHeader>
-                    <SheetTitle>Edit profile</SheetTitle>
+                    <SheetTitle>Categories</SheetTitle>
                     <SheetDescription>
-                        Make changes to your profile here. Click save when you're done.
+                        Select a category
                     </SheetDescription>
                     </SheetHeader>
-                    <SheetClose asChild>
-                        <Button type="submit">Save changes</Button>
-                    </SheetClose>
+                    {footerLinks[2].lines.map((el: string, idx: number): any => (
+                        <SheetClose key={idx} asChild className="block">
+                            <Link href='/test'>
+                                <Button variant='link'>{el}</Button>
+                            </Link>
+                        </SheetClose>
+                    ))}
                 </SheetContent>
             </Sheet>
         </nav>
