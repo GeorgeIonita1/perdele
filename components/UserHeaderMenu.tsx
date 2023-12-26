@@ -1,13 +1,17 @@
-import Link from "next/link";
-import { Button } from "./ui/button";
 import { footerLinks } from "@/lib/utils";
+import { Button } from "./ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
+import Link from "next/link";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
-function SubMenu() {
+function UserHeaderMenu() {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant='outline'>Categories</Button>
+                <Avatar>
+                    <AvatarImage src="/perdele.jpg" />
+                    <AvatarFallback>GG</AvatarFallback>
+                </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
                 {footerLinks[2].lines.map((el: string, idx: number): any => (
@@ -20,4 +24,4 @@ function SubMenu() {
     );
 }
 
-export default SubMenu;
+export default UserHeaderMenu;
