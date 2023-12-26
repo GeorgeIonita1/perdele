@@ -1,15 +1,12 @@
 import CardMain from "@/components/CardMain";
+import { dummyData } from "@/lib/utils";
 
 export default function Home() {
   return (
     <div className="container min-h-screen grid md:grid-cols-2 lg:grid-cols-3 md:gap-4">
-      <CardMain />
-      <CardMain />
-      <CardMain />
-      <CardMain />
-      <CardMain />
-      <CardMain />
-      <CardMain />
+      {dummyData.map((data: DummyData, idx: number): any => (
+        <CardMain key={idx} data={data} />
+      ))}
     </div>
   )
 }

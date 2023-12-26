@@ -32,3 +32,55 @@ export const footerLinks: FooterLink[] = [
     ]
   }
 ];
+
+export const dummyData: DummyData[] = [
+  {
+    title: 'Perdea Sufragerie',
+    imaSrc: '/perdele.jpg',
+    id: 1,
+    price: '$130.00',
+    oldPrice: '$220.00'
+  },
+  {
+    title: 'Perdea Sufragerie',
+    imaSrc: '/perdele.jpg',
+    id: 2,
+    price: '$130.00',
+    oldPrice: '$220.00'
+  },
+  {
+    title: 'Perdea Sufragerie',
+    imaSrc: '/perdele.jpg',
+    id: 3,
+    price: '$130.00',
+    oldPrice: '$220.00'
+  },
+  {
+    title: 'Perdea Sufragerie',
+    imaSrc: '/perdele.jpg',
+    id: 4,
+    price: '$130.00',
+    oldPrice: '$220.00'
+  },
+  {
+    title: 'Perdea Sufragerie',
+    imaSrc: '/perdele.jpg',
+    id: 5,
+    price: '$130.00',
+    oldPrice: '$220.00'
+  },
+  {
+    title: 'Perdea Sufragerie',
+    imaSrc: '/perdele.jpg',
+    id: 6,
+    price: '$130.00',
+    oldPrice: '$220.00'
+  },
+  {
+    title: 'Perdea Sufragerie',
+    imaSrc: '/perdele.jpg',
+    id: 7,
+    price: '$130.00',
+    oldPrice: '$220.00'
+  },
+];
