@@ -16,7 +16,7 @@ function UserHeaderMenu() {
             <DropdownMenuTrigger asChild>
                 <Avatar>
                     {session?.user?.name && (
-                        <AvatarImage src="/perdele.jpg" />
+                        <AvatarImage src={session?.user?.image || ''} />
                     )}
                     <AvatarFallback>
                         <Button>User</Button>
