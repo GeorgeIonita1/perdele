@@ -14,7 +14,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} bg-chill`}>
         <Header />
-        <main className='pt-32'>
+        <main className='pt-40'>
           {children}
         </main>
         <Footer />
