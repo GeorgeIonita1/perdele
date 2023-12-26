@@ -2,9 +2,9 @@ import Image from "next/image";
 
 function CardDetailHead() {
     return (
-        <div className="grid grid-cols-12 gap-4">
+        <div className="md:grid md:grid-cols-12 md:gap-4">
             <div className="col-span-5">
-                <Image alt="Imagine cu perdele" src='/perdele.jpg' height={900} width={600} />
+                <Image alt="Imagine cu perdele" src='/perdele.jpg' height={768} width={768} />
             </div>
             <div className="col-span-7 flex flex-col gap-4">
                 <h2 className="font-extrabold text-2xl">Product Title</h2>
