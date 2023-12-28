@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SubMenu from "./SubMenu";
 import UserHeaderMenu from "./UserHeaderMenu";
 import { Button } from "./ui/button";
@@ -12,8 +13,11 @@ function NavigationDesktop() {
             <li><Button variant='link'>Livingroom</Button></li>
             <li><Button variant='link'>Bedroom</Button></li>
             <li><Button variant='link'>Kitchen</Button></li>
-            <li><Button variant='link'>Hallway</Button></li>
-
+            <li>
+                <Link href='/admin'>
+                    <Button variant='link'>Admin</Button>
+                </Link>
+            </li>
             <li className="ml-auto">
                 <UserHeaderMenu />
             </li>

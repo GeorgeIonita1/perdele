@@ -29,6 +29,9 @@ function UserHeaderMenu() {
                         <DropdownMenuItem>{el}</DropdownMenuItem>
                     </Link>
                 ))}
+                <Link href='/admin'>
+                    <Button variant='link'>Admin</Button>
+                </Link>
                 {session?.user?.name ? (
                     <Button onClick={() => signOut()}>Log Out</Button>
                     ) : (
