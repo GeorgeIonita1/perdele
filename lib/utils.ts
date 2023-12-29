@@ -84,3 +84,36 @@ export const dummyData: DummyData[] = [
     oldPrice: '$220.00'
   },
 ];
+
+export const highlightDisplay = [
+  {
+    name: 'CLEW',
+    rating: '★★★★★',
+    price: '$23',
+    imgSrc: '/one.jpg'
+  },
+  {
+    name: 'VASE',
+    rating: '★★★★',
+    price: '$44',
+    imgSrc: '/two.jpg'
+  },
+  {
+    name: 'STORAGE',
+    rating: '★★★★★',
+    price: '$23',
+    imgSrc: '/three.jpg'
+  },
+  {
+    name: 'DECORATIVE CANDLE',
+    rating: '★★★★★',
+    price: '$23',
+    imgSrc: '/four.jpg'
+  },
+  {
+    name: 'HOLDBACK',
+    rating: '★★★',
+    price: '$23',
+    imgSrc: '/five.jpg'
+  },
+];

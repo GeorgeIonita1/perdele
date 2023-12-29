@@ -14,3 +14,14 @@ interface DummyData {
 interface CardMainProps {
     data: DummyData;
 }
+
+interface HighlightSmall {
+    name: string;
+    rating: string;
+    price: string;
+    imgSrc: string;
+}
+
+interface HighlightSmallProps {
+    data: HighlightSmall;
+}
