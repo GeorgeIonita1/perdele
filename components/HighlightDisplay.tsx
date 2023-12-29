@@ -14,7 +14,7 @@ function HighlightDisplay() {
         return dataToReturn;
     }
     return (
-        <div className="sm:grid grid-cols-2 md:grid-cols-4 md:grid-rows-2 gap-6">
+        <div className="sm:grid grid-cols-2 gap-4 md:grid-cols-4 md:grid-rows-2">
             {displayItems()}            
         </div>
     );

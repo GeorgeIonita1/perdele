@@ -4,7 +4,7 @@ import NavigationMobile from "./NavigationMobile";
 
 function Header() {
     return (
-        <header className="fixed w-full bg-inherit">
+        <header className="fixed w-full bg-inherit z-50">
             <div className="container">
                 <div className="max-md:flex justify-between items-center">
                     <div className="text-center py-4 max-md:text-right">
