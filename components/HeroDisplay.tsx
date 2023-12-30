@@ -1,19 +1,20 @@
 import Image from "next/image";
+import { Button } from "./ui/button";
 
-function HeroDisplay() {
+function HeroDisplay({ data }: HeroBannerProps) {
     return (
-        <div className="hero-display h-screen relative">
-            <div className="h-full">
-                <Image
-                    alt="Beautiful sunsite through curtains"
-                    src='/Hero.jpg'
-                    width={1400}
-                    height={860}
-                    className="h-full object-cover object-right w-full"
-                />
-            </div>
-            <div className="absolute flex flex-col justify-center inset-0 px-6 text-5xl font-extrabold text-white max-w-lg leading-14">
-                <h1>Window Couture: Dressing Your Spaces with Distinctive Flair</h1>
+        <div className="h-96 relative">
+            <Image
+                alt={data.alt}
+                src={data.src}
+                width={1400}
+                height={460}
+                className={`${data.fit}`}
+            />
+            <div className="container absolute flex flex-col justify-center items-center gap-8 inset-0 text-white text-center max-w-screen-xl">
+                <h1 className="text-4xl lg:text-5xl font-extrabold leading-14">{data.title}</h1>
+                {data?.subtitle && <p className="text-xl">{data.subtitle}</p>}
+                {data?.action && <Button variant='outline' className="bg-transparent">{data.action}</Button>}
             </div>
         </div>
     );

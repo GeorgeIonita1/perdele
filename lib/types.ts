@@ -25,3 +25,16 @@ interface HighlightSmall {
 interface HighlightSmallProps {
     data: HighlightSmall;
 }
+
+interface HeroBanner {
+    alt: string;
+    src: string;
+    fit: string;
+    title: string;
+    subtitle?: string;
+    action?: string;
+}
+
+interface HeroBannerProps {
+    data: HeroBanner;
+}

@@ -117,3 +117,22 @@ export const highlightDisplay = [
     imgSrc: '/five.jpg'
   },
 ];
+
+export const heroBanners = [
+  {
+    alt: 'Red show curtains',
+    src: '/cashmere.jpg',
+    fit: 'object-left',
+    title: 'Window Couture: Dressing Your Spaces with Distinctive Flair'
+  },
+  {
+    alt: 'Gray curtains',
+    src: '/hero.jpg',
+    fit: 'object-center',
+    title: 'Most powerful concept',
+    subtitle: `Transform your space with our exquisite curtains—where 
+    fashion meets function. Elevate ambiance, embrace comfort, 
+    and indulge in affordable luxury today!`,
+    action: 'BROWSE'
+  },
+]
