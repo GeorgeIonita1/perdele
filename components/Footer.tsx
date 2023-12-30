@@ -16,7 +16,7 @@ function iterateFooterLinks() {
 function Footer() {
     return (
         <footer>
-            <div className="md:flex justify-between md:w-4/6 mx-auto p-6">
+            <div className="md:flex justify-between md:w-4/6 mx-auto py-6 px-8">
                 {iterateFooterLinks()}
             </div>
 
