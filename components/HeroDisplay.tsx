@@ -9,7 +9,7 @@ function HeroDisplay() {
                     src='/Hero.jpg'
                     width={1400}
                     height={860}
-                    className="h-full object-cover object-right"
+                    className="h-full object-cover object-right w-full"
                 />
             </div>
             <div className="absolute flex flex-col justify-center inset-0 px-6 text-5xl font-extrabold text-white max-w-lg leading-14">
