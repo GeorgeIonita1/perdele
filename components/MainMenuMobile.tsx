@@ -7,7 +7,7 @@ function MainMenuMobile() {
     return (
         <Sheet>
             <SheetTrigger asChild>
-                <Button variant="outline" size='icon'>m</Button>
+                <Button variant="ghost">Menu</Button>
             </SheetTrigger>
             <SheetContent>
                 <SheetHeader>
