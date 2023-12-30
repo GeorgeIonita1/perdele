@@ -33,6 +33,7 @@ interface HeroBanner {
     title: string;
     subtitle?: string;
     action?: string;
+    grayscale?: string;
 }
 
 interface HeroBannerProps {

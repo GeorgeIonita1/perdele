@@ -123,7 +123,8 @@ export const heroBanners = [
     alt: 'Red show curtains',
     src: '/cashmere.jpg',
     fit: 'object-left',
-    title: 'Window Couture: Dressing Your Spaces with Distinctive Flair'
+    title: 'Window Couture: Dressing Your Spaces with Distinctive Flair',
+    grayscale: 'grayscale'
   },
   {
     alt: 'Gray curtains',
@@ -133,6 +134,6 @@ export const heroBanners = [
     subtitle: `Transform your space with our exquisite curtains—where 
     fashion meets function. Elevate ambiance, embrace comfort, 
     and indulge in affordable luxury today!`,
-    action: 'BROWSE'
+    action: 'BROWSE',
   },
 ]
