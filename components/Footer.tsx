@@ -16,19 +16,17 @@ function iterateFooterLinks() {
 function Footer() {
     return (
         <footer>
-            <div className="px-8">
-                <div className="md:flex justify-between md:w-4/6 mx-auto py-4">
-                    {iterateFooterLinks()}
-                </div>
+            <div className="md:flex justify-between md:w-4/6 mx-auto py-4">
+                {iterateFooterLinks()}
+            </div>
 
-                <div className="w-full h-px mx-auto bg-slate-950" />
+            <div className="w-full h-px mx-auto bg-slate-950" />
 
-                <div className="flex justify-between items-center py-4">
-                    <small>Copyright 2023 Perdele</small>
-                    <div>Logo</div>
-                    <div>
-                        <small>+40-770-123-456</small>
-                    </div>
+            <div className="flex justify-between items-center p-6">
+                <small>Copyright 2023 Perdele</small>
+                <div>Logo</div>
+                <div>
+                    <small>+40-770-123-456</small>
                 </div>
             </div>
         </footer>
