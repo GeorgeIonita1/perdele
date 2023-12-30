@@ -75,6 +75,11 @@
   }
 }
 
+.wrapper {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .highlight-item {
   aspect-ratio: 1;
 }
@@ -147,4 +152,18 @@
 .highlight-item:hover .image-wrapper {
   top: -.5rem;
   bottom: .5rem;
+}
+
+.hero-display {
+  top: -6rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .hero-display {
+    top: -9rem;
+  }
+}
+
+img {
+  border-radius: 4px;
 }

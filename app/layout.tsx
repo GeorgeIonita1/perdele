@@ -21,7 +21,7 @@ export default async function RootLayout({
         <SessionProvider session={session}>
           <Header />
         </SessionProvider>
-        <main className='pt-24 md:pt-40'>
+        <main className='pt-24 md:pt-36'>
           {children}
         </main>
         <Footer />
