@@ -127,7 +127,7 @@ export const heroBanners = [
   },
   {
     alt: 'Gray curtains',
-    src: '/hero.jpg',
+    src: '/gray.jpg',
     fit: 'object-center',
     title: 'Most powerful concept',
     subtitle: `Transform your space with our exquisite curtains—where 
