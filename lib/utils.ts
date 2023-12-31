@@ -45,6 +45,10 @@ export const navigationLinks = [
     name: 'Bedroom',
     path: '/detail/2'
   },
+  {
+    name: 'Livingroom',
+    path: '/detail/2'
+  },
 ];
 
 export const dummyData: DummyData[] = [
