@@ -151,6 +151,15 @@
   transform: scale(1.1)
 }
 
+.shadow > div {
+  top: -1rem;
+  transition:  .3s all;
+}
+
+.highlight-item:hover .shadow > div {
+  top: 0;
+}
+
 img {
   width: 100%;
   height: 100%;
