@@ -42,7 +42,7 @@ export const navigationLinks = [
     path: '/detail/2'
   },
   {
-    name: 'Bedroomsss',
+    name: 'Bedroom',
     path: '/detail/2'
   },
 ];
