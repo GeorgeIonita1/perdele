@@ -1,4 +1,4 @@
-import { footerLinks } from "@/lib/utils";
+import { navigationLinks } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
 import Link from "next/link";
@@ -7,7 +7,7 @@ function MainMenuMobile() {
     return (
         <Sheet>
             <SheetTrigger asChild>
-                <Button variant="ghost">Menu</Button>
+                <Button variant="link" className="p-0">Menu</Button>
             </SheetTrigger>
             <SheetContent>
                 <SheetHeader>
@@ -16,10 +16,10 @@ function MainMenuMobile() {
                     Select a category
                 </SheetDescription>
                 </SheetHeader>
-                {footerLinks[2].lines.map((el: string, idx: number): any => (
+                {navigationLinks.map((el: NavigationLink, idx: number): any => (
                     <SheetClose key={idx} asChild className="block">
-                        <Link href='/test'>
-                            <Button variant='link'>{el}</Button>
+                        <Link href={el.path}>
+                            <Button variant='link'>{el.name}</Button>
                         </Link>
                     </SheetClose>
                 ))}

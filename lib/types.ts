@@ -39,3 +39,8 @@ interface HeroBanner {
 interface HeroBannerProps {
     data: HeroBanner;
 }
+
+interface NavigationLink {
+    name: string;
+    path: string;
+}

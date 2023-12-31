@@ -32,6 +32,21 @@ export const footerLinks: FooterLink[] = [
   }
 ];
 
+export const navigationLinks = [
+  {
+    name: 'Home',
+    path: '/'
+  },
+  {
+    name: 'Categories',
+    path: '/detail/2'
+  },
+  {
+    name: 'Bedroom',
+    path: '/detail/2'
+  },
+];
+
 export const dummyData: DummyData[] = [
   {
     title: 'Perdea Sufragerie',
