@@ -10,9 +10,10 @@ function NavigationDesktop() {
                 <SubMenu />
             </li> */}
 
-            <li><Button variant='link'>Livingroom</Button></li>
-            <li><Button variant='link'>Bedroom</Button></li>
-            <li><Button variant='link'>Kitchen</Button></li>
+            <li><Link href='/'><Button variant='link'>Home</Button></Link></li>
+            <li><Link href='/detail/2'><Button variant='link'>Livingroom</Button></Link></li>
+            <li><Link href='/detail/2'><Button variant='link'>Bedroom</Button></Link></li>
+            <li><Link href='/detail/2'><Button variant='link'>Kitchen</Button></Link></li>
 
             {/* route to admin section disabled */}
             {/* <li>
