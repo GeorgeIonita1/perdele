@@ -5,15 +5,13 @@ function HighlightSmall({ data }: HighlightSmallProps) {
     return (
         <Link 
             href='/detail/2'
-            className="max-sm:py-6 highlight-item grid relative overflow-hidden"
+            className="max-sm:py-6 highlight-item grid overflow-hidden relative"
         >
-            <div className="image-wrapper relative">
-                <Image 
-                    alt="Perdea alba" src={data.imgSrc} 
-                    height={800}
-                    width={800}
-                />
-            </div>
+            <Image 
+                alt="Perdea alba" src={data.imgSrc} 
+                height={800}
+                width={800}
+            />
             <div className="shadow absolute inset-0 flex flex-col justify-center items-center">
                 <h3>{data.name}</h3>
                 <h4>{data.rating}</h4>
