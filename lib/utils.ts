@@ -28,7 +28,6 @@ export const footerLinks: FooterLink[] = [
       'Livingroom',
       'Bedroom',
       'Bathroom',
-      'Silk'
     ]
   }
 ];
