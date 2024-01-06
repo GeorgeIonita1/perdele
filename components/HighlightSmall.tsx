@@ -11,6 +11,8 @@ function HighlightSmall({ data }: HighlightSmallProps) {
                 alt="Perdea alba" src={data.imgSrc} 
                 height={800}
                 width={800}
+                placeholder="blur"
+                blurDataURL={data.imgSrc}
             />
             <div className="shadow absolute inset-0 flex flex-col justify-center items-center">
                 <h3>{data.name}</h3>

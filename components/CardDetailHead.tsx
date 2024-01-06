@@ -4,7 +4,14 @@ function CardDetailHead() {
     return (
         <div className="md:grid md:grid-cols-12 md:gap-16">
             <div className="col-span-5 aspect-square">
-                <Image alt="Imagine cu perdele" src='/perdele.jpg' height={768} width={768} />
+                <Image 
+                    alt="Imagine cu perdele" 
+                    src='/perdele.jpg' 
+                    height={768} 
+                    width={768}
+                    placeholder="blur"
+                    blurDataURL='/perdele.jpg'
+                />
             </div>
             <div className="col-span-7 flex flex-col gap-12 max-md:mt-6">
                 <h1 className="font-extrabold text-4xl">Product Title</h1>
