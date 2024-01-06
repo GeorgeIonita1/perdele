@@ -12,7 +12,7 @@ function HighlightSmall({ data }: HighlightSmallProps) {
                 height={800}
                 width={800}
                 placeholder="blur"
-                blurDataURL={data.imgSrc}
+                blurDataURL={data.placeholder}
             />
             <div className="shadow absolute inset-0 flex flex-col justify-center items-center">
                 <h3>{data.name}</h3>

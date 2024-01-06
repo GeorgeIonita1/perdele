@@ -9,6 +9,7 @@ interface DummyData {
     id: number;
     price: string,
     oldPrice: string;
+    placeholder?: string;
 }
 
 interface CardMainProps {
@@ -20,6 +21,7 @@ interface HighlightSmall {
     rating: string;
     price: string;
     imgSrc: string;
+    placeholder?: string;
 }
 
 interface HighlightSmallProps {
@@ -34,6 +36,7 @@ interface HeroBanner {
     subtitle?: string;
     action?: string;
     grayscale?: string;
+    placeholder?: string;
 }
 
 interface HeroBannerProps {

@@ -10,7 +10,7 @@ function HeroDisplay({ data }: HeroBannerProps) {
                 width={1400}
                 height={460}
                 placeholder='blur'
-                blurDataURL={data.src}
+                blurDataURL={data.placeholder}
                 className={`${data.fit} ${data?.grayscale && data.grayscale}`}
             />
             <div className="container absolute flex flex-col justify-center items-center gap-8 inset-0 text-white text-center max-w-screen-xl">

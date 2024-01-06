@@ -8,7 +8,7 @@ function CardMain({ data }: CardMainProps) {
             <Card className="highlight-item max-md:max-w-screen-md max-md:mb-4">
                 <CardContent className="card-main p-0">
                     <div className="overflow-hidden">
-                        <Image alt="Imagine cu perdele" src={data.imaSrc} width={768} height={768} />
+                        <Image alt="Imagine cu perdele" src={data.imaSrc} width={768} height={768} placeholder="blur" blurDataURL={data.placeholder} />
                     </div>
                 </CardContent>
                 <CardFooter className="justify-center pt-2">
