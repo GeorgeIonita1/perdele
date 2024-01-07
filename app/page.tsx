@@ -11,21 +11,22 @@ export default function Home() {
   return (
     <>
       <HeroDisplay data={banner1} />
-      <div className="container wrapper">
-        <HighlightDisplay />
-      </div>
 
-      <div className="container wrapper px-20 mt-20">
+      <section className="container wrapper">
+        <HighlightDisplay />
+      </section>
+
+      <section className="container wrapper px-20 mt-20">
         <CarouselDisplay />
-      </div>
+      </section>
 
       <HeroDisplay data={banner2} />
 
-      <div className="container wrapper min-h-screen grid md:grid-cols-2 lg:grid-cols-3 md:gap-4">
+      <section className="container wrapper min-h-screen grid md:grid-cols-2 lg:grid-cols-3 md:gap-4">
       {dummyData.map((data: DummyData, idx: number): any => (
         <CardMain key={idx} data={data} />
       ))}
-      </div>
+      </section>
     </>
   )
 }
