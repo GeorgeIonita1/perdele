@@ -1,13 +1,22 @@
 import Link from "next/link";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+
 import { Button } from "./ui/button";
 
 function NavigationDesktop() {
     return (
         <nav className="flex justify-center *:list-none max-md:hidden">
             <li><Link href='/'><Button variant='link'>Home</Button></Link></li>
-            <li><Link href='/detail/2'><Button variant='link'>Livingroom</Button></Link></li>
-            <li><Link href='/detail/2'><Button variant='link'>Bedroom</Button></Link></li>
-            <li><Link href='/detail/2'><Button variant='link'>Kitchen</Button></Link></li>
+            <li><Link href='/product/2'><Button variant='link'>Livingroom</Button></Link></li>
+            <li><Link href='/product/2'><Button variant='link'>Bedroom</Button></Link></li>
+            <li><Link href='/product/2'><Button variant='link'>Kitchen</Button></Link></li>
+            <SignedIn>
+                <li><Link href='/admin'><Button variant='link'>Admin</Button></Link></li>
+                <UserButton afterSignOutUrl="/" />
+            </SignedIn>
+            <SignedOut>
+                <SignInButton mode="modal" />
+            </SignedOut>
         </nav>
     );
 }

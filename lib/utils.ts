@@ -39,15 +39,15 @@ export const navigationLinks = [
   },
   {
     name: 'Categories',
-    path: '/detail/2'
+    path: '/product/2'
   },
   {
     name: 'Bedroom',
-    path: '/detail/2'
+    path: '/product/2'
   },
   {
     name: 'Livingroom',
-    path: '/detail/2'
+    path: '/product/2'
   },
 ];
 

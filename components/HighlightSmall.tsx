@@ -4,7 +4,7 @@ import Link from "next/link";
 function HighlightSmall({ data }: HighlightSmallProps) {
     return (
         <Link 
-            href='/detail/2'
+            href='/product/2'
             className="max-sm:py-6 highlight-item grid overflow-hidden relative"
         >
             <Image 

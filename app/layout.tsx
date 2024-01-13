@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
+import { ClerkProvider } from '@clerk/nextjs';
 
 import './globals.css'
 import Header from '@/components/Header'
@@ -15,20 +16,22 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className}`}>
-        <Header>
-          <>
-            <Link className="font-bold text-lg" href='/'>Logo</Link>
-            <NavigationMobile />
-            <NavigationDesktop />
-          </>
-        </Header>
-        <main className='pt-24'>
-          {children}
-        </main>
-        <Footer />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${inter.className}`}>
+          <Header>
+            <>
+              <Link className="font-bold text-lg" href='/'>Logo</Link>
+              <NavigationMobile />
+              <NavigationDesktop />
+            </>
+          </Header>
+          <main className='pt-24'>
+            {children}
+          </main>
+          <Footer />
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }

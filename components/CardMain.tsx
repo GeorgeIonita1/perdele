@@ -4,7 +4,7 @@ import Link from "next/link";
 
 function CardMain({ data }: CardMainProps) {
     return (
-        <Link href='/detail/2' className="p-1">
+        <Link href='/product/2' className="p-1">
             <Card className="highlight-item max-md:max-w-screen-md max-md:mb-4">
                 <CardContent className="card-main p-0">
                     <div className="overflow-hidden">
