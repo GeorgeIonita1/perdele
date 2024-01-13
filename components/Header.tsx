@@ -1,13 +1,30 @@
-import Link from "next/link";
-import NavigationDesktop from "./NavigationDesktop";
-import NavigationMobile from "./NavigationMobile";
+'use client'
 
-function Header() {
+import { useEffect, useState } from "react";
+
+function Header({ children }: { children: React.ReactNode}) {
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const [isVisible, setIsVisible] = useState(true);
+
+    const handleScroll = () => {
+        const currentScrollPosition = window.scrollY;
+
+        setIsVisible(scrollPosition > currentScrollPosition || currentScrollPosition < 70);
+
+        setScrollPosition(currentScrollPosition);
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [scrollPosition])
+
     return (
-        <header className="fixed w-full bg-inherit z-50 flex justify-between items-center py-6 px-8">
-            <Link className="font-bold text-lg" href='/'>Logo</Link>
-            <NavigationMobile />
-            <NavigationDesktop />
+        <header className={`${isVisible ? 'header-visible' : ''} fixed w-full bg-inherit z-50 flex justify-between items-center py-6 px-8`}>
+            {children}
         </header>
     );
 }
