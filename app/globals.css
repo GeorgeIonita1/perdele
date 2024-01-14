@@ -140,8 +140,8 @@ img {
 }
 
 .highlight-item:hover .shadow {
-  background-color: rgba(255, 255, 255, .9);
-  color: inherit;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
 }
 
 .highlight-item img {
