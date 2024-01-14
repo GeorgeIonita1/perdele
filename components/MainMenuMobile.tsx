@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { auth } from "@clerk/nextjs";
+import { Menu } from "lucide-react";
 
 import { navigationLinks } from "@/lib/utils";
 import { Button } from "./ui/button";
@@ -12,7 +13,9 @@ function MainMenuMobile() {
     return (
         <Sheet>
             <SheetTrigger asChild>
-                <Button variant="link" className="p-0">Menu</Button>
+                <Button variant="link" className="p-0">
+                    <Menu />
+                </Button>
             </SheetTrigger>
             <SheetContent>
                 <SheetHeader>
