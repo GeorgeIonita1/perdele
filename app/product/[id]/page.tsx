@@ -1,11 +1,11 @@
-import CardDetailHead from "@/components/CardDetailHead";
+import ProductDetail from "@/components/ProductDetail";
 
-function CardDetail() {
+function ProductDetailPage() {
     return (
         <div className="container">
-            <CardDetailHead />
+            <ProductDetail />
         </div>
     );
 }
 
-export default CardDetail;
+export default ProductDetailPage;

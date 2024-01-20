@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Card, CardContent, CardFooter } from "./ui/card";
 import Link from "next/link";
 
-function CardMain({ data }: { data: any }) {
+function ProductPreview({ data }: { data: any }) {
     return (
         <Link href='/product/2' className="p-1">
             <Card className="highlight-item max-md:max-w-screen-md max-md:mb-4">
@@ -24,4 +24,4 @@ function CardMain({ data }: { data: any }) {
     );
 }
 
-export default CardMain;
+export default ProductPreview;

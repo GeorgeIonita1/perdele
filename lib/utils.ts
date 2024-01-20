@@ -77,7 +77,17 @@ export const heroBanners = [
 // prisma queries
 export async function getProducts() {
   try {
-    const res = await prisma.product.findMany();
+    const res = await prisma.product.findMany({
+      select: {
+        id: true,
+        created_at: true,
+        updated_at: true,
+        title: true,
+        price: true,
+        rating: true,
+        thumbnail: true
+      }
+    });
 
     return res;
   } catch (err) {

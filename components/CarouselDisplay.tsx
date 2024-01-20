@@ -4,7 +4,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { useEffect, useRef, useState } from "react";
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
-import CardMain from "./CardMain";
+import ProductPreview from "./ProductPreview";
 
 function CarouselDisplay() {
     const [products, setProducts] = useState<Product[] | null>(null);
@@ -31,7 +31,7 @@ function CarouselDisplay() {
             <CarouselContent>
                 {products?.map((data, idx) => (
                     <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3">
-                        <CardMain data={data} />
+                        <ProductPreview data={data} />
                     </CarouselItem>
                 ))}
             </CarouselContent>

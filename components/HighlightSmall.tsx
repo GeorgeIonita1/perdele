@@ -5,7 +5,7 @@ function HighlightSmall({ data }: any) {
     return (
         <Link
             href='/product/2'
-            className="max-sm:py-6 highlight-item grid overflow-hidden relative"
+            className="highlight-item max-sm:py-6 grid overflow-hidden relative"
         >
             <Image
                 alt="Perdea alba" src={data?.thumbnail}
