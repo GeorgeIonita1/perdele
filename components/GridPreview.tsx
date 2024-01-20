@@ -1,14 +1,17 @@
+// add backup image
+// add image preview
+
 import Image from "next/image";
 import Link from "next/link";
 
-function GridPreview({ data }: any) {
+function GridPreview({ data }: { data: Product }) {
     return (
         <Link
-            href='/product/2'
+            href={`/product/${data.id}`}
             className="highlight-item max-sm:py-6 grid overflow-hidden relative"
         >
             <Image
-                alt="Perdea alba" src={data?.thumbnail}
+                alt="Perdea alba" src={data.thumbnail ?? ''}
                 height={800}
                 width={800}
             />

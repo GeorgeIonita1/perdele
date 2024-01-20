@@ -77,7 +77,7 @@ export const heroBanners = [
 // prisma queries
 export async function getProducts() {
   try {
-    const res = await prisma.product.findMany({
+    return await prisma.product.findMany({
       select: {
         id: true,
         created_at: true,
@@ -89,9 +89,22 @@ export async function getProducts() {
       }
     });
 
-    return res;
   } catch (err) {
     console.error('Failed to fetch products', err);
     throw new Error('Failed to fetch products');
+  }
+}
+
+export async function getSingleProduct(id: string) {
+  try {
+    return await prisma.product.findUnique({
+      where: {
+        id
+      }
+    });
+
+  } catch (err) {
+    console.error('Failed to fetch single product', err);
+    throw new Error('Failed to fetch single product');
   }
 }

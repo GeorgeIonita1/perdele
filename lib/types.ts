@@ -30,6 +30,6 @@ interface Product {
     title: string;
     price: number;
     description?: string;
-    rating?: string;
-    thumbnail?: string;
+    rating?: string | null;
+    thumbnail?: string | null;
 }
