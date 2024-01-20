@@ -47,3 +47,14 @@ interface NavigationLink {
     name: string;
     path: string;
 }
+
+interface Product {
+    id: string;
+    created_at: Date;
+    updated_at: Date;
+    title: string;
+    price: number;
+    description?: string;
+    rating?: string;
+    thumbnail?: string;
+}
