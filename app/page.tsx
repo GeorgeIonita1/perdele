@@ -1,6 +1,6 @@
 import CarouselDisplay from "@/components/CarouselDisplay";
 import HeroDisplay from "@/components/HeroDisplay";
-import HighlightDisplay from "@/components/HighlightDisplay";
+import GridDisplay from "@/components/GridDisplay";
 import ListDisplay from "@/components/ListDisplay";
 import { heroBanners } from "@/lib/utils";
 
@@ -13,7 +13,7 @@ export default function Home() {
       <HeroDisplay data={banner1} />
 
       <section className="container wrapper">
-        <HighlightDisplay />
+        <GridDisplay />
       </section>
 
       <section className="container wrapper px-20 mt-20">

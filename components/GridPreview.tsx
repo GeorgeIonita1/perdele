@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-function HighlightSmall({ data }: any) {
+function GridPreview({ data }: any) {
     return (
         <Link
             href='/product/2'
@@ -23,4 +23,4 @@ function HighlightSmall({ data }: any) {
     );
 }
 
-export default HighlightSmall;
+export default GridPreview;
