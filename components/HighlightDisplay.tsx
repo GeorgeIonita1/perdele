@@ -1,21 +1,16 @@
-// todo: for loop
+// add proper typescript
 
-import { highlightDisplay } from "@/lib/utils";
+import { getProducts } from "@/lib/utils";
 import HighlightSmall from "./HighlightSmall";
 
-function HighlightDisplay() {
-    function displayItems() {
-        const dataToReturn = [];
+async function HighlightDisplay() {
+    const data = await getProducts();
 
-        for (let i = 0; i < 5; i++) {
-            dataToReturn.push(<HighlightSmall data={highlightDisplay[i]} />)
-        }
-
-        return dataToReturn;
-    }
     return (
         <div className="sm:grid grid-cols-2 gap-4 md:grid-cols-4 md:grid-rows-2">
-            {displayItems()}            
+            {data.map((product, idx) => (
+                <HighlightSmall key={idx} data={product} />
+            ))}
         </div>
     );
 }

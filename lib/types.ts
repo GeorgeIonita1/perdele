@@ -3,31 +3,6 @@ interface FooterLink {
     lines: string[];
 }
 
-interface DummyData {
-    title: string;
-    imaSrc: string;
-    id: number;
-    price: string,
-    oldPrice: string;
-    placeholder?: string;
-}
-
-interface CardMainProps {
-    data: DummyData;
-}
-
-interface HighlightSmall {
-    name: string;
-    rating: string;
-    price: string;
-    imgSrc: string;
-    placeholder?: string;
-}
-
-interface HighlightSmallProps {
-    data: HighlightSmall;
-}
-
 interface HeroBanner {
     alt: string;
     src: string;
