@@ -5,8 +5,7 @@ import ListDisplay from "@/components/ListDisplay";
 import { heroBanners } from "@/lib/utils";
 
 export default function Home() {
-  const banner1 = heroBanners[0];
-  const banner2 = heroBanners[1];
+  const [banner1, banner2] = heroBanners;
 
   return (
     <>

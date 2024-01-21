@@ -1,5 +1,3 @@
-// add image preview and fallback
-
 import { fallbackText } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
