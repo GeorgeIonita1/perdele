@@ -7,13 +7,7 @@ import Link from "next/link";
 function GridPreview({ data }: { data: Product }) {
     return (
         <Link
-            // href={`/product/${data.id}`}
-            href={{
-                pathname: `/product/${data.id}`,
-                query: {
-                    id: data.id
-                }
-            }}
+            href={`/product/${data.id}`}
             className="highlight-item max-sm:py-6 grid overflow-hidden relative"
         >
             <Image

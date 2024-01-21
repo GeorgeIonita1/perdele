@@ -17,7 +17,7 @@ function CarouselDisplay() {
         fetch('/api/products')
             .then(res => res.json())
             .then(res => setProducts(res.data))
-            .catch(res => console.log('failed to fetch data'))
+            .catch(res => console.error('failed to fetch data'))
     }, [])
 
     return (

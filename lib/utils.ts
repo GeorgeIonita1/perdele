@@ -100,13 +100,10 @@ export async function getProducts() {
 
 export async function getSingleProduct(id: number) {
   id = Number(id);
-  console.log("i am in the query", id, typeof id)
 
   try {
     return await prisma.product.findUnique({
-      where: {
-        id: id
-      }
+      where: { id }
     });
 
   } catch (err) {

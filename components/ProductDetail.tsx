@@ -1,18 +1,14 @@
 'use client'
 
 import Image from "next/image";
-import { useSearchParams } from 'next/navigation';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from "react";
 
 function ProductDetail() {
-    // const { id } = useParams<{ id: string }>();
+    const { id } = useParams<{ id: string }>();
     const [product, setProduct] = useState<Product | null>(null);
-    const searchParams = useSearchParams()
-    const id = Number(searchParams.get('id'));
 
     useEffect(() => {
-        console.log(id, typeof id);
         fetch(`/api/products/${id}`)
             .then(res => res.json())
             .then(res => setProduct(res.data))
