@@ -1,6 +1,6 @@
-// add backup image
-// add image preview
+// add image preview and fallback
 
+import { fallbackText } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,7 +11,8 @@ function GridPreview({ data }: { data: Product }) {
             className="highlight-item max-sm:py-6 grid overflow-hidden relative"
         >
             <Image
-                alt="Perdea alba" src={data.thumbnail ?? ''}
+                alt={data.alt_text ?? fallbackText}
+                src={data.thumbnail ?? ''}
                 height={800}
                 width={800}
             />

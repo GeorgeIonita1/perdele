@@ -1,16 +1,23 @@
-// add typescript
+// add fallback image and preview
 
 import Image from "next/image";
-import { Card, CardContent, CardFooter } from "./ui/card";
 import Link from "next/link";
 
-function ProductPreview({ data }: { data: any }) {
+import { Card, CardContent, CardFooter } from "./ui/card";
+import { fallbackText } from "@/lib/utils";
+
+function ProductPreview({ data }: { data: Product }) {
     return (
-        <Link href='/product/2' className="p-1">
+        <Link href={`/product/${data.id}`} className="p-1">
             <Card className="highlight-item max-md:max-w-screen-md max-md:mb-4">
                 <CardContent className="card-main p-0">
                     <div className="overflow-hidden">
-                        <Image alt="Imagine cu perdele" src={data?.thumbnail} width={768} height={768} />
+                        <Image
+                            alt={data.alt_text ?? fallbackText}
+                            src={data?.thumbnail ?? ''}
+                            width={768}
+                            height={768}
+                        />
                     </div>
                 </CardContent>
                 <CardFooter className="justify-center pt-2">

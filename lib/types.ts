@@ -24,11 +24,12 @@ interface NavigationLink {
 }
 
 interface Product {
-    id: string;
+    id: number;
     created_at: Date;
     updated_at: Date;
     title: string;
     price: number;
+    alt_text?: string;
     description?: string;
     rating?: string | null;
     thumbnail?: string | null;

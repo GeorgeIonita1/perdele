@@ -29,8 +29,8 @@ function CarouselDisplay() {
             onMouseLeave={plugin.current.reset}
         >
             <CarouselContent>
-                {products?.map((data, idx) => (
-                    <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3">
+                {products?.map(data => (
+                    <CarouselItem key={data.id} className="md:basis-1/2 lg:basis-1/3">
                         <ProductPreview data={data} />
                     </CarouselItem>
                 ))}

@@ -2,6 +2,8 @@ import prisma from "@/prisma/prisma";
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 
+export const fallbackText = 'Imagine alternativa de urgenta';
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
@@ -85,7 +87,8 @@ export async function getProducts() {
         title: true,
         price: true,
         rating: true,
-        thumbnail: true
+        thumbnail: true,
+        alt_text: true
       }
     });
 
@@ -95,7 +98,7 @@ export async function getProducts() {
   }
 }
 
-export async function getSingleProduct(id: string) {
+export async function getSingleProduct(id: number) {
   try {
     return await prisma.product.findUnique({
       where: {

@@ -35,11 +35,12 @@ model User {
 }
 
 model Product {
-  id          String   @id @default(uuid())
+  id          Int      @id @default(autoincrement())
   created_at  DateTime @default(now())
   updated_at  DateTime @default(now())
   title       String
   price       Float
+  alt_text    String
   description String?
   rating      String?
   thumbnail   String?
