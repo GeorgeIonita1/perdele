@@ -98,7 +98,7 @@ export async function getProducts() {
   }
 }
 
-export async function getSingleProduct(id: number) {
+export async function getSingleProduct(id: string) {
   try {
     return await prisma.product.findUnique({
       where: {
