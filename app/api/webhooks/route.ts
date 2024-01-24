@@ -1,11 +1,15 @@
+// resolve line 12!!!
+
 import { Webhook } from 'svix'
 import { headers } from 'next/headers'
 import { WebhookEvent } from '@clerk/nextjs/server'
 
 export async function POST(req: Request) {
-  const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET
+  const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
+  const CLERK_SECRET_KEY = process.env.CLERK_SECRET_KEY;
 
   if (!WEBHOOK_SECRET) {
+    // way to handle this error runtime!! ###################################################################################################################
     throw new Error('Please add WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local')
   }
 
@@ -49,8 +53,27 @@ export async function POST(req: Request) {
   const { id } = evt.data;
   const eventType = evt.type;
 
-  console.log(`Webhook with and ID of ${id} and type of ${eventType}`)
-  console.log('Webhook body:', payload)
+  if (eventType === 'user.updated' || eventType === 'user.created') {
+    try {
+      const response = await fetch(`https://api.clerk.dev/v1/users/${id}`, {
+        headers: {
+          'Authorization': `Bearer ${CLERK_SECRET_KEY}`,
+          'Content-Type': 'application/json',
+        },
+      });
 
+      const data = await response.json();
+      const emailAddresses = data.email_addresses;
+      console.log('my data is:', data)
+      console.log(`User's email addresses: ${emailAddresses[0].email_address}`);
+
+    } catch (error) {
+      console.error('Failed to add user to the db', error);
+      return new Response('Failed to create/update user to db');
+    }
+  } else if (eventType === 'user.deleted') {
+    // add code !
+    console.log('deleted user from db')
+  }
   return new Response('da, ai reusit, brovos!', { status: 200 })
 }

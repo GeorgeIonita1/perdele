@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-function Header({ children }: { children: React.ReactNode}) {
+function Header({ children }: { children: React.ReactNode }) {
     const [scrollPosition, setScrollPosition] = useState(0);
     const [isVisible, setIsVisible] = useState(true);
 
