@@ -5,8 +5,8 @@ import { ClerkProvider } from '@clerk/nextjs';
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import NavigationMobile from '@/components/NavigationMobile';
-import NavigationDesktop from '@/components/NavigationDesktop';
+import NavigationMobile from '@/components/Navigation/NavigationMobile';
+import NavigationDesktop from '@/components/Navigation/NavigationDesktop';
 
 const inter = Inter({ subsets: ['latin'] })
 

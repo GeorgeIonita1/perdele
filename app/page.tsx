@@ -1,6 +1,6 @@
 import CarouselDisplay from "@/components/CarouselDisplay";
+import GridDisplay from "@/components/GridView/GridDisplay";
 import HeroDisplay from "@/components/HeroDisplay";
-import GridDisplay from "@/components/GridDisplay";
 import ListDisplay from "@/components/ListDisplay";
 import { heroBanners } from "@/lib/utils";
 

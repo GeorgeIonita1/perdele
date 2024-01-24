@@ -3,8 +3,7 @@
 import Link from "next/link";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs";
-
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 function NavigationDesktop() {
     const { sessionClaims }: any = auth();

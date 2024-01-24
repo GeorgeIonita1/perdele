@@ -1,6 +1,5 @@
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
-
-import MainMenuMobile from "./MainMenuMobile";
+import MainMenuMobile from "../MainMenuMobile";
 
 function NavigationMobile() {
     return (
