@@ -1,5 +1,3 @@
-// resolve line 12!!!
-
 import { Webhook } from 'svix'
 import { headers } from 'next/headers'
 import { WebhookEvent } from '@clerk/nextjs/server'
@@ -9,8 +7,8 @@ export async function POST(req: Request) {
   const CLERK_SECRET_KEY = process.env.CLERK_SECRET_KEY;
 
   if (!WEBHOOK_SECRET) {
-    // way to handle this error runtime!! ###################################################################################################################
-    throw new Error('Please add WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local')
+    console.error('Webhook secret not provided check env variables');
+    return new Response('Webhook secret not provided check env variables', { status: 400 });
   }
 
   // Get the headers
@@ -21,6 +19,7 @@ export async function POST(req: Request) {
 
   // If there are no headers, error out
   if (!svix_id || !svix_timestamp || !svix_signature) {
+    console.error('Error occured -- no svix headers');
     return new Response('Error occured -- no svix headers', {
       status: 400
     })
