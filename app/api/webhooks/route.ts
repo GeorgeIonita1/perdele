@@ -1,10 +1,14 @@
 import { Webhook } from 'svix'
 import { headers } from 'next/headers'
 import { WebhookEvent } from '@clerk/nextjs/server'
+import prisma from '@/prisma/prisma';
 
 export async function POST(req: Request) {
   const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
   const CLERK_SECRET_KEY = process.env.CLERK_SECRET_KEY;
+  const CREATE_USER = 'user.created';
+  const UPDATE_USER = 'user.updated';
+  const DELETED_USER = 'user.deleted';
 
   if (!WEBHOOK_SECRET) {
     console.error('Webhook secret not provided check env variables');
@@ -52,27 +56,78 @@ export async function POST(req: Request) {
   const { id } = evt.data;
   const eventType = evt.type;
 
-  if (eventType === 'user.updated' || eventType === 'user.created') {
-    try {
-      const response = await fetch(`https://api.clerk.dev/v1/users/${id}`, {
-        headers: {
-          'Authorization': `Bearer ${CLERK_SECRET_KEY}`,
-          'Content-Type': 'application/json',
-        },
-      });
+  switch (eventType) {
+    case CREATE_USER: {
+      console.log('user create');
+      
+      try {
+        const response = await fetch(`https://api.clerk.dev/v1/users/${id}`, {
+          headers: {
+            'Authorization': `Bearer ${CLERK_SECRET_KEY}`,
+            'Content-Type': 'application/json',
+          },
+        });
+    
+        const userData = await response.json();
+        const emailAddresses = userData.email_addresses;
+        const primaryEmail = emailAddresses[0].email_address;
 
-      const data = await response.json();
-      const emailAddresses = data.email_addresses;
-      console.log('my data is:', data)
-      console.log(`User's email addresses: ${emailAddresses[0].email_address}`);
-
-    } catch (error) {
-      console.error('Failed to add user to the db', error);
-      return new Response('Failed to create/update user to db');
+        const user = await prisma.user.create({
+          data: {
+            id,
+            email: primaryEmail,
+            first_name: userData.first_name,
+            last_name: userData.last_name,
+            phone: 'n/a'
+          }
+        })
+        console.log(user);
+      } catch (error) {
+        console.error('Failed to add user to the db', error);
+        return new Response('Failed to create/update user to db');
+      }
+      
+      break;
     }
-  } else if (eventType === 'user.deleted') {
-    // add code !
-    console.log('deleted user from db')
+    case UPDATE_USER: {
+      console.log('update user', payload);
+      // code
+      
+      
+      break;
+    }
+    case DELETED_USER: {
+      console.log(payload, id);
+      // nu gaseste userul pentru ca probabil clerk il sterge deja cand trimite datele
+      try {
+        const response = await fetch(`https://api.clerk.dev/v1/users/${id}`, {
+          headers: {
+            'Authorization': `Bearer ${CLERK_SECRET_KEY}`,
+            'Content-Type': 'application/json',
+          },
+        });
+        
+        const userData = await response.json();
+        console.log('user data', userData)
+        const emailAddresses = userData.email_addresses;
+        console.log('emailAddresses', emailAddresses)
+        const primaryEmail = emailAddresses[0].email_address;
+        
+        const deletedUser = await prisma.user.delete({
+          where: {
+            email: primaryEmail,
+            id
+          },
+        })
+        console.log(deletedUser)
+      } catch (error) {
+        console.error('Failed to delete user to the db', error);
+        return new Response('Failed to delete user to db');
+      }
+
+      break;
+    }
   }
+  
   return new Response('da, ai reusit, brovos!', { status: 200 })
 }

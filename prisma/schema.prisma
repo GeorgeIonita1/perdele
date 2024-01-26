@@ -21,14 +21,13 @@ model User {
   created_at DateTime  @default(now())
   updated_at DateTime  @default(now())
   role       Role      @default(user)
-  phone      String    @unique
   email      String    @unique
+  phone      String?
   birthday   DateTime?
   first_name String?
   last_name  String?
   gender     String?
   address    String?
-  // reviews    String
   // wishlist   String
   // cart       String
   // order      String
