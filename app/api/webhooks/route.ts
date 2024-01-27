@@ -70,44 +70,75 @@ export async function POST(req: Request) {
 
         const userData = await response.json();
         const emailAddresses = userData.email_addresses;
+        console.log('email addresses', emailAddresses)
         const primaryEmail = emailAddresses[0].email_address;
+        console.log(primaryEmail, id)
 
-        const user = await prisma.user.create({
-          data: {
-            id: id ?? 'no-id?:))',
-            // changed the db structure to accomodate multiple emails linked and this will throw an error
-            email: primaryEmail,
-            first_name: userData.first_name,
-            last_name: userData.last_name,
-          }
-        })
-        console.log(user);
+        if (id) {
+          const user = await prisma.user.create({
+            data: {
+              id,
+              first_name: userData.first_name,
+              last_name: userData.last_name,
+              emails: primaryEmail
+            },
+          })
+          console.log(user);
+        }
+
       } catch (error) {
         console.error('Failed to add user to the db', error);
-        return new Response('Failed to create/update user to db');
+        return new Response('Failed to create user to db');
       }
-
+      
       break;
     }
     case UPDATE_USER: {
-      console.log('update user', payload);
-      // code
+      // this will only update user email addresses as its the only remarkable change
+      // that the user can do through the clerk webhook
+      try {
+        const response = await fetch(`https://api.clerk.dev/v1/users/${id}`, {
+          headers: {
+            'Authorization': `Bearer ${CLERK_SECRET_KEY}`,
+            'Content-Type': 'application/json',
+          },
+        });
+        
+        const userData = await response.json();
+        console.log('before:', userData.email_addresses)
+        const userEmailAddress = userData.email_addresses[0].email_address;
+        console.log('update userrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr', userEmailAddress);
 
-
+        const mutatedUser = await prisma.user.update({
+          where: { id },
+          data: {
+            emails: userEmailAddress
+          },
+        });
+        console.log(mutatedUser)
+      } catch (err) {
+        console.error('Error updating the user')
+        return new Response('Failed to update user to db');
+      }
+      
       break;
     }
     case DELETED_USER: {
       console.log('deleting user')
+      console.log(id);
 
       try {
-        const deletedUser = await prisma.user.delete({
-          where: { id }
-        })
-        console.log(deletedUser)
-      } catch (error) {
-        console.error('Failed to delete user to the db', error);
-        return new Response('Failed to delete user to db');
+        const deletedEmails = prisma.user.delete({
+          where: {
+            id
+          }
+        });
+        console.log('deleted emails:', deletedEmails);
+      } catch (err) {
+        console.error('Failed to delete user emails relationship to the db', err);
+        return new Response('Failed to delete user emails relationship to db');
       }
+      
       break;
     }
   }
