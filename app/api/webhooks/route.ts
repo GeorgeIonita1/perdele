@@ -47,7 +47,7 @@ export async function POST(req: Request) {
     }) as WebhookEvent
   } catch (err) {
     console.error('Error verifying webhook:', err);
-    return new Response('Error occured', {
+    return new Response('Error occured - Svix instance validation verification failed', {
       status: 400
     })
   }
@@ -59,7 +59,7 @@ export async function POST(req: Request) {
   switch (eventType) {
     case CREATE_USER: {
       console.log('user create');
-      
+
       try {
         const response = await fetch(`https://api.clerk.dev/v1/users/${id}`, {
           headers: {
@@ -67,18 +67,18 @@ export async function POST(req: Request) {
             'Content-Type': 'application/json',
           },
         });
-    
+
         const userData = await response.json();
         const emailAddresses = userData.email_addresses;
         const primaryEmail = emailAddresses[0].email_address;
 
         const user = await prisma.user.create({
           data: {
-            id,
+            id: id ?? 'no-id?:))',
+            // changed the db structure to accomodate multiple emails linked and this will throw an error
             email: primaryEmail,
             first_name: userData.first_name,
             last_name: userData.last_name,
-            phone: 'n/a'
           }
         })
         console.log(user);
@@ -86,48 +86,31 @@ export async function POST(req: Request) {
         console.error('Failed to add user to the db', error);
         return new Response('Failed to create/update user to db');
       }
-      
+
       break;
     }
     case UPDATE_USER: {
       console.log('update user', payload);
       // code
-      
-      
+
+
       break;
     }
     case DELETED_USER: {
-      console.log(payload, id);
-      // nu gaseste userul pentru ca probabil clerk il sterge deja cand trimite datele
+      console.log('deleting user')
+
       try {
-        const response = await fetch(`https://api.clerk.dev/v1/users/${id}`, {
-          headers: {
-            'Authorization': `Bearer ${CLERK_SECRET_KEY}`,
-            'Content-Type': 'application/json',
-          },
-        });
-        
-        const userData = await response.json();
-        console.log('user data', userData)
-        const emailAddresses = userData.email_addresses;
-        console.log('emailAddresses', emailAddresses)
-        const primaryEmail = emailAddresses[0].email_address;
-        
         const deletedUser = await prisma.user.delete({
-          where: {
-            email: primaryEmail,
-            id
-          },
+          where: { id }
         })
         console.log(deletedUser)
       } catch (error) {
         console.error('Failed to delete user to the db', error);
         return new Response('Failed to delete user to db');
       }
-
       break;
     }
   }
-  
-  return new Response('da, ai reusit, brovos!', { status: 200 })
+
+  return new Response('Request successfull!', { status: 200 })
 }

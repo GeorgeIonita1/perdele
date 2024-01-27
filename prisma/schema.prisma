@@ -16,12 +16,18 @@ enum Role {
   admin
 }
 
+model Email {
+  email  String  @unique
+  User   User?   @relation(fields: [userId], references: [id])
+  userId String?
+}
+
 model User {
   id         String    @id
   created_at DateTime  @default(now())
   updated_at DateTime  @default(now())
   role       Role      @default(user)
-  email      String    @unique
+  emails     Email[]
   phone      String?
   birthday   DateTime?
   first_name String?
