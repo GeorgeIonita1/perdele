@@ -69,10 +69,8 @@ export async function POST(req: Request) {
         });
 
         const userData = await response.json();
-        const emailAddresses = userData.email_addresses;
+        const emailAddresses = userData.email_addresses.map((email: any) => email.email_address);
         console.log('email addresses', emailAddresses)
-        const primaryEmail = emailAddresses[0].email_address;
-        console.log(primaryEmail, id)
 
         if (id) {
           const user = await prisma.user.create({
@@ -80,7 +78,7 @@ export async function POST(req: Request) {
               id,
               first_name: userData.first_name,
               last_name: userData.last_name,
-              emails: primaryEmail
+              emails: [...emailAddresses]
             },
           })
           console.log(user);
@@ -106,13 +104,13 @@ export async function POST(req: Request) {
         
         const userData = await response.json();
         console.log('before:', userData.email_addresses)
-        const userEmailAddress = userData.email_addresses[0].email_address;
+        const userEmailAddress = userData.email_addresses.map((email: any) => email.email_address);
         console.log('update userrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr', userEmailAddress);
 
         const mutatedUser = await prisma.user.update({
           where: { id },
           data: {
-            emails: userEmailAddress
+            emails: [...userEmailAddress]
           },
         });
         console.log(mutatedUser)
@@ -128,7 +126,7 @@ export async function POST(req: Request) {
       console.log(id);
 
       try {
-        const deletedEmails = prisma.user.delete({
+        const deletedEmails = await prisma.user.delete({
           where: {
             id
           }
