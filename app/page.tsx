@@ -1,19 +1,18 @@
-import CardMain from "@/components/CardMain";
 import CarouselDisplay from "@/components/CarouselDisplay";
+import GridDisplay from "@/components/GridView/GridDisplay";
 import HeroDisplay from "@/components/HeroDisplay";
-import HighlightDisplay from "@/components/HighlightDisplay";
-import { dummyData, heroBanners } from "@/lib/utils";
+import ListDisplay from "@/components/ListDisplay";
+import { heroBanners } from "@/lib/utils";
 
 export default function Home() {
-  const banner1 = heroBanners[0];
-  const banner2 = heroBanners[1];
+  const [banner1, banner2] = heroBanners;
 
   return (
     <>
       <HeroDisplay data={banner1} />
 
       <section className="container wrapper">
-        <HighlightDisplay />
+        <GridDisplay />
       </section>
 
       <section className="container wrapper px-20 mt-20">
@@ -22,10 +21,8 @@ export default function Home() {
 
       <HeroDisplay data={banner2} />
 
-      <section className="container wrapper min-h-screen grid md:grid-cols-2 lg:grid-cols-3 md:gap-4">
-      {dummyData.map((data: DummyData, idx: number): any => (
-        <CardMain key={idx} data={data} />
-      ))}
+      <section className="container wrapper">
+        <ListDisplay />
       </section>
     </>
   )

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-function Header({ children }: { children: React.ReactNode}) {
+function Header({ children }: { children: React.ReactNode }) {
     const [scrollPosition, setScrollPosition] = useState(0);
     const [isVisible, setIsVisible] = useState(true);
 
@@ -23,7 +23,7 @@ function Header({ children }: { children: React.ReactNode}) {
     }, [scrollPosition])
 
     return (
-        <header className={`${isVisible ? 'header-visible' : ''} fixed w-full bg-inherit z-50 flex justify-between items-center py-6 px-8`}>
+        <header className={`${isVisible ? 'header-visible' : ''} fixed w-full bg-inherit z-50 flex md:justify-between items-center py-6 px-8`}>
             {children}
         </header>
     );

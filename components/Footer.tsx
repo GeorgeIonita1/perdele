@@ -10,7 +10,7 @@ function iterateFooterLinks() {
                 {link.lines.map((line: string, index: number): any => (
                     <Link
                         key={index} className="py-0 block"
-                        href='/detail/2'
+                        href='/product/2'
                     >
                         <Button variant='link' className="text-white p-0"><h5>{line}</h5></Button>
                     </Link>

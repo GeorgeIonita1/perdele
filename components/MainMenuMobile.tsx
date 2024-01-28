@@ -1,13 +1,21 @@
+import Link from "next/link";
+import { auth } from "@clerk/nextjs";
+import { Menu } from "lucide-react";
+
 import { navigationLinks } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
-import Link from "next/link";
 
 function MainMenuMobile() {
+    const { sessionClaims }: any = auth();
+    const isAdmin = sessionClaims?.metadata.role === "admin";
+
     return (
         <Sheet>
             <SheetTrigger asChild>
-                <Button variant="link" className="p-0">Menu</Button>
+                <Button variant="link" className="p-0">
+                    <Menu />
+                </Button>
             </SheetTrigger>
             <SheetContent>
                 <SheetHeader>
@@ -23,6 +31,13 @@ function MainMenuMobile() {
                         </Link>
                     </SheetClose>
                 ))}
+                {isAdmin && (
+                    <SheetClose asChild className="block">
+                        <Link href='/admin'>
+                            <Button variant='link'>Admin</Button>
+                        </Link>
+                    </SheetClose>
+                )}
             </SheetContent>
         </Sheet>
     );
