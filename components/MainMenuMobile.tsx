@@ -19,10 +19,10 @@ function MainMenuMobile() {
             </SheetTrigger>
             <SheetContent>
                 <SheetHeader>
-                <SheetTitle>Categories</SheetTitle>
-                <SheetDescription>
-                    Select a category
-                </SheetDescription>
+                    <SheetTitle>Categories</SheetTitle>
+                    <SheetDescription>
+                        Select a category
+                    </SheetDescription>
                 </SheetHeader>
                 {navigationLinks.map((el: NavigationLink, idx: number): any => (
                     <SheetClose key={idx} asChild className="block">
