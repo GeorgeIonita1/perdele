@@ -1,7 +1,10 @@
+import { Suspense } from "react";
 import CarouselDisplay from "@/components/CarouselDisplay";
 import GridDisplay from "@/components/GridView/GridDisplay";
+import GridLoading from "@/components/GridView/GridLoading";
 import HeroDisplay from "@/components/HeroDisplay";
-import ListDisplay from "@/components/ListDisplay";
+import ListDisplay from "@/components/ListDisplay/ListDisplay";
+import ListLoading from "@/components/ListDisplay/ListLoading";
 import { heroBanners } from "@/lib/utils";
 
 export default function Home() {
@@ -12,7 +15,9 @@ export default function Home() {
       <HeroDisplay data={banner1} />
 
       <section className="container wrapper">
-        <GridDisplay />
+        <Suspense fallback={<GridLoading />}>
+          <GridDisplay />
+        </Suspense>
       </section>
 
       <section className="container wrapper px-20 mt-20">
@@ -22,7 +27,9 @@ export default function Home() {
       <HeroDisplay data={banner2} />
 
       <section className="container wrapper">
-        <ListDisplay />
+        <Suspense fallback={<ListLoading />}>
+          <ListDisplay />
+        </Suspense>
       </section>
     </>
   )

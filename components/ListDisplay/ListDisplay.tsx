@@ -1,4 +1,4 @@
-import ProductPreview from "./ProductPreview";
+import ProductPreview from "../ProductPreview";
 import { getProducts } from "@/lib/utils";
 
 async function ListDisplay() {
