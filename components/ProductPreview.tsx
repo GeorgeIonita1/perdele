@@ -9,7 +9,7 @@ import { fallbackText } from "@/lib/utils";
 function ProductPreview({ data }: { data: Product }) {
     return (
         <Link href={`/product/${data.id}`} className="p-1">
-            <Card className="aspect-square max-md:max-w-screen-md max-md:mb-4">
+            <Card className="highlight-item aspect-square max-md:max-w-screen-md max-md:mb-4">
                 <CardContent className="card-main p-0">
                     <div className="overflow-hidden">
                         <Image
