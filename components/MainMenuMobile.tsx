@@ -1,3 +1,4 @@
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { auth } from "@clerk/nextjs";
 import { Menu } from "lucide-react";
@@ -11,7 +12,7 @@ function MainMenuMobile() {
     const isAdmin = sessionClaims?.metadata.role === "admin";
 
     return (
-        <Sheet>
+        <Sheet modal={false}>
             <SheetTrigger asChild>
                 <Button variant="link" className="p-0">
                     <Menu />
@@ -19,10 +20,18 @@ function MainMenuMobile() {
             </SheetTrigger>
             <SheetContent>
                 <SheetHeader>
-                    <SheetTitle>Categories</SheetTitle>
-                    <SheetDescription>
-                        Select a category
-                    </SheetDescription>
+                    <SheetClose>
+                        <SignedIn>
+                            <UserButton afterSignOutUrl="/" />
+                        </SignedIn>
+                        <SignedOut>
+                            <Button variant='outline' className="w-full mt-8">
+                                <SignInButton mode="modal" />
+                            </Button>
+                        </SignedOut>
+                    </SheetClose>
+
+                    <SheetTitle className="pt-10">Categories</SheetTitle>
                 </SheetHeader>
                 {navigationLinks.map((el: NavigationLink, idx: number): any => (
                     <SheetClose key={idx} asChild className="block">
