@@ -6,7 +6,7 @@ import GridLoading from "@/components/GridView/GridLoading";
 import HeroDisplay from "@/components/HeroDisplay";
 import ListDisplay from "@/components/ListDisplay/ListDisplay";
 import ListLoading from "@/components/ListDisplay/ListLoading";
-import ContactDisplay from "@/components/ContactDisplay";
+import ContactDisplay from "@/components/ContactDisplay/ContactDisplay";
 import { heroBanners } from "@/lib/utils";
 
 export default function Home() {

@@ -7,6 +7,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import NavigationMobile from '@/components/Navigation/NavigationMobile';
 import NavigationDesktop from '@/components/Navigation/NavigationDesktop';
+import { Toaster } from '@/components/ui/toaster';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,6 +31,7 @@ export default async function RootLayout({
             {children}
           </main>
           <Footer />
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>
