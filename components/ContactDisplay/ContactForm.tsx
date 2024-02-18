@@ -4,20 +4,21 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 
-import { ContactFormDataSchema } from '@/lib/utils';
+import { contactFormDataSchema } from '@/lib/utils';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
 import { Button } from '../ui/button';
 import { useToast } from '../ui/use-toast';
+import { submitContactForm } from '@/actions';
 
-type ContactInputs = z.infer<typeof ContactFormDataSchema>
+export type ContactInputs = z.infer<typeof contactFormDataSchema>
 
 function ContactForm() {
     const { toast } = useToast();
 
     const form = useForm<ContactInputs>({
-        resolver: zodResolver(ContactFormDataSchema),
+        resolver: zodResolver(contactFormDataSchema),
         defaultValues: {
             name: '',
             phone: '',
@@ -27,13 +28,22 @@ function ContactForm() {
     })
 
     function onSubmit(values: ContactInputs) {
-        console.log(values);
-        toast({
-            title: "Scheduled: Catch up",
-            description: "Friday, February 10, 2023 at 5:57 PM",
-        })
-        form.reset();
+        const response = submitContactForm(values);
+
+        if (!response) {
+            toast({
+                title: "Error",
+                description: "Please try again",
+            });
+        } else {
+            toast({
+                title: "Message sent",
+                description: "Thank you! We will reach out soon",
+            });
+            form.reset();
+        }
     }
+
     return (
         <Form {...form}>
             <form

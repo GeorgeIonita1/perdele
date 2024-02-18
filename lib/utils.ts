@@ -113,7 +113,7 @@ export async function getSingleProduct(id: number) {
   }
 }
 
-export const ContactFormDataSchema = z.object({
+export const contactFormDataSchema = z.object({
   name: z.string()
     .max(30, { message: 'Name must be shorter than 30 characters long' })
     .min(3, { message: 'Name must be at lease 3 characters ' }),
