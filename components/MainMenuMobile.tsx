@@ -5,7 +5,7 @@ import { Menu } from "lucide-react";
 
 import { navigationLinks } from "@/lib/utils";
 import { Button } from "./ui/button";
-import { Sheet, SheetClose, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
 
 function MainMenuMobile() {
     const { sessionClaims }: any = auth();
