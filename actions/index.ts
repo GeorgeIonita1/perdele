@@ -9,22 +9,23 @@ import EmailTemplate from '@/components/ContactDisplay/EmailTemplate';
 const resend = new Resend(process.env.RESEND_APY_KEY);
 export async function submitContactForm(formData: ContactInputs) {
     try {
-        contactFormDataSchema.parse(formData);
-
-        const { data, error } = await resend.emails.send({
-            from: 'Perdele <g3orrg301@gmail.com>',
-            to: ['george.ionita514@gmail.com'],
-            subject: 'Hello',
+        const { name, phone, email, message } = contactFormDataSchema.parse(formData);
+        await resend.emails.send({
+            from: 'Perdele <delivered@resend.dev>',
+            to: ['g3orrg301@gmail.com'],
+            subject: 'New Contact',
             text: 'gg',
-            react: EmailTemplate({ name: 'george' })
+            react: EmailTemplate({
+                name,
+                phone,
+                email,
+                message: message || 'No message'
+            })
         })
-
-        console.log(data, error);
-
         return true;
 
     } catch (err) {
-        console.error('i am the catch')
+        console.log('the error os', err)
         return false;
     }
 

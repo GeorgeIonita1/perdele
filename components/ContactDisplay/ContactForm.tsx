@@ -27,8 +27,10 @@ function ContactForm() {
         }
     })
 
-    function onSubmit(values: ContactInputs) {
-        const response = submitContactForm(values);
+    async function onSubmit(values: ContactInputs) {
+        // let user know something is happening behind the scenes (disable button or smth)
+        // await new Promise(resolve => setTimeout(resolve, 4000));
+        const response = await submitContactForm(values);
 
         if (!response) {
             toast({
