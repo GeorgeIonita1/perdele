@@ -8,6 +8,7 @@ import Footer from '@/components/Footer'
 import NavigationMobile from '@/components/Navigation/NavigationMobile';
 import NavigationDesktop from '@/components/Navigation/NavigationDesktop';
 import { Toaster } from '@/components/ui/toaster';
+import { Button } from '@/components/ui/button';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,11 +22,11 @@ export default async function RootLayout({
       <html lang="en">
         <body className={`${inter.className}`}>
           <Header>
-            <>
-              <Link className="font-bold text-lg" href='/'>Logo</Link>
-              <NavigationMobile />
-              <NavigationDesktop />
-            </>
+            <Link className="font-bold text-lg" href='/'>Logo</Link>
+            <a href="tel:+40770123456" className="underline underline-offset-4 mr-auto ml-6 max-md:hidden"><Button variant='link'>0771-234-567</Button></a>
+
+            <NavigationMobile />
+            <NavigationDesktop />
           </Header>
           <main className='pt-24'>
             {children}

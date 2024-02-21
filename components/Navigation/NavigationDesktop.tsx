@@ -11,7 +11,6 @@ function NavigationDesktop() {
 
     return (
         <nav className="flex justify-center *:list-none max-md:hidden">
-            <li><a href="tel:+40770123456" className="underline underline-offset-4"><Button variant='link'>0771-234-567</Button></a></li>
             <li><Link href='/'><Button variant='link'>Home</Button></Link></li>
             <li><Link href='/product/2'><Button variant='link'>Livingroom</Button></Link></li>
             <li><Link href='/product/2'><Button variant='link'>Bedroom</Button></Link></li>
