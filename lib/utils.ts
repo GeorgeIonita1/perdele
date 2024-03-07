@@ -83,8 +83,6 @@ export async function getProducts() {
     return await prisma.product.findMany({
       select: {
         id: true,
-        created_at: true,
-        updated_at: true,
         title: true,
         price: true,
         rating: true,
@@ -100,8 +98,6 @@ export async function getProducts() {
 }
 
 export async function getSingleProduct(id: number) {
-  id = Number(id);
-
   try {
     return await prisma.product.findUnique({
       where: { id }

@@ -1,8 +1,8 @@
-import LoadingSun from "../LoadingSun";
+import LoadingSun from "@/components/LoadingSun";
 
-function LoadingProductDetail() {
+export default function Loading() {
     return (
-        <div className="animate-pulse md:grid md:grid-cols-12 md:gap-16">
+        <div className="container animate-pulse md:grid md:grid-cols-12 md:gap-16">
             <div className="md:col-span-5">
                 <LoadingSun />
             </div>
@@ -20,5 +20,3 @@ function LoadingProductDetail() {
         </div>
     );
 }
-
-export default LoadingProductDetail;

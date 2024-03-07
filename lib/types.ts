@@ -25,8 +25,6 @@ interface NavigationLink {
 
 interface Product {
     id: number;
-    created_at: Date;
-    updated_at: Date;
     title: string;
     price: number;
     alt_text?: string;
