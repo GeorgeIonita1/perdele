@@ -81,6 +81,11 @@ h2 {
   font-size: 2rem;
 }
 
+h3 {
+  font-weight: bold;
+  font-size: larger;
+}
+
 section {
   padding-top: 2rem;
   padding-bottom: 2rem;
