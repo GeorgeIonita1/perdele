@@ -7,7 +7,7 @@ async function ProductRecommendedProducts() {
     return (
         <section>
             <h3>Related products</h3>
-            <div className="grid md:grid-cols-2 md:gap-4 md:gap-10 lg:grid-cols-3">
+            <div className="grid md:grid-cols-2 md:gap-4 md:gap-10 lg:grid-cols-3 mt-4">
                 {data.map(data => (
                     <ProductPreview key={data.id} data={data} />
                 ))}

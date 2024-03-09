@@ -25,7 +25,7 @@ function ContactForm() {
             email: '',
             message: '',
         }
-    })
+    });
 
     async function onSubmit(values: ContactInputs) {
         // let user know something is happening behind the scenes (disable button or smth)
@@ -65,7 +65,6 @@ function ContactForm() {
                         </FormItem>
                     )}
                 />
-
                 <FormField
                     control={form.control}
                     name='phone'
@@ -79,7 +78,6 @@ function ContactForm() {
                         </FormItem>
                     )}
                 />
-
                 <FormField
                     control={form.control}
                     name='email'
@@ -93,7 +91,6 @@ function ContactForm() {
                         </FormItem>
                     )}
                 />
-
                 <FormField
                     control={form.control}
                     name='message'
@@ -107,7 +104,6 @@ function ContactForm() {
                         </FormItem>
                     )}
                 />
-
                 <Button>Submit</Button>
             </form>
         </Form>

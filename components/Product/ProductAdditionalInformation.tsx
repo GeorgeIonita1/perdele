@@ -1,4 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+import ProductReview from "./ProductReview";
+import ProductReviewForm from "./ProductReviewForm";
 
 function ProductAdditionalInformation() {
     return (
@@ -34,17 +36,13 @@ function ProductAdditionalInformation() {
                     </div>
                 </TabsContent>
                 <TabsContent value="reviews">
-                    <h3>Reviews</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Modi vero assumenda expedita eius maiores quasi corrupti
-                        laudantium placeat eum itaque.
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Modi vero assumenda expedita eius maiores quasi corrupti
-                        laudantium placeat eum itaque
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Modi vero assumenda expedita eius maiores quasi corrupti
-                        laudantium placeat eum itaque
-                    </p>
+                    <h3 className="mb-6">3 Reviews for this product</h3>
+                    <div className="*:mt-4 mb-6">
+                        <ProductReview />
+                        <ProductReview />
+                        <ProductReview />
+                    </div>
+                    <ProductReviewForm />
                 </TabsContent>
             </Tabs>
         </section>
