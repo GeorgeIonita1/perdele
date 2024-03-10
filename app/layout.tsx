@@ -1,4 +1,5 @@
-import { Inter } from 'next/font/google';
+import { Catamaran } from 'next/font/google';
+
 import Link from 'next/link';
 import { ClerkProvider } from '@clerk/nextjs';
 
@@ -10,7 +11,7 @@ import NavigationDesktop from '@/components/Navigation/NavigationDesktop';
 import { Toaster } from '@/components/ui/toaster';
 import { Button } from '@/components/ui/button';
 
-const inter = Inter({ subsets: ['latin'] })
+const catamaran = Catamaran({ subsets: ['latin'] });
 
 export default async function RootLayout({
   children,
@@ -20,7 +21,7 @@ export default async function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${inter.className}`}>
+        <body className={`${catamaran.className}`}>
           <Header>
             <Link className="font-bold text-lg" href='/'>Logo</Link>
             <a href="tel:+40770123456" className="underline underline-offset-4 mr-auto ml-6 max-md:hidden"><Button variant='link'>0771-234-567</Button></a>

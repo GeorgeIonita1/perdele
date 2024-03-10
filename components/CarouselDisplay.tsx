@@ -14,24 +14,6 @@ function CarouselDisplay() {
         Autoplay({ delay: 2000, stopOnInteraction: true })
     );
 
-    const loadData = () => {
-        return (
-            products ? (
-                products.map(data => (
-                    <CarouselItem key={data.id} className="md:basis-1/2 lg:basis-1/3">
-                        <ProductPreview data={data} />
-                    </CarouselItem>
-                ))
-            ) : (
-                Array(3).fill('4').map((el, idx) => (
-                    <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3">
-                        <LoadingSun />
-                    </CarouselItem>
-                ))
-            )
-        );
-    }
-
     useEffect(() => {
         fetch('/api/products')
             .then(res => res.json())
@@ -48,7 +30,19 @@ function CarouselDisplay() {
             onMouseLeave={plugin.current.reset}
         >
             <CarouselContent>
-                {loadData()}
+                {products ? (
+                    products.map(data => (
+                        <CarouselItem key={data.id} className="md:basis-1/2 lg:basis-1/3">
+                            <ProductPreview data={data} />
+                        </CarouselItem>
+                    ))
+                ) : (
+                    Array(3).fill('4').map((el, idx) => (
+                        <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3">
+                            <LoadingSun />
+                        </CarouselItem>
+                    ))
+                )}
             </CarouselContent>
             <CarouselPrevious />
             <CarouselNext />
