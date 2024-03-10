@@ -4,13 +4,13 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 
-import { contactFormDataSchema } from '@/lib/utils';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
 import { Button } from '../ui/button';
 import { useToast } from '../ui/use-toast';
 import { submitContactForm } from '@/actions';
+import { contactFormDataSchema } from '@/lib/form_schemas';
 
 export type ContactInputs = z.infer<typeof contactFormDataSchema>
 

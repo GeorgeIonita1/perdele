@@ -3,12 +3,14 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Star } from "lucide-react";
 
 import { useToast } from "../ui/use-toast";
-import { productReviewDataSchema } from "@/lib/utils";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { submitProductReviewForm } from "@/actions";
+import { productReviewDataSchema } from "@/lib/form_schemas";
 
 export type ProductReviewInputs = z.infer<typeof productReviewDataSchema>
 
@@ -28,10 +30,24 @@ function ProductReviewForm() {
     async function onSubmit(values: ProductReviewInputs) {
         // let user know something is happening behind the scenes (disable button or smth)
         // await new Promise(resolve => setTimeout(resolve, 4000));
-        console.log(values)
+
+        const response = await submitProductReviewForm(values);
+
+        if (!response) {
+            toast({
+                title: 'Error sending the review',
+                description: 'Please try again'
+            })
+        } else {
+            toast({
+                title: "Review sent",
+                description: "Thank you! We will review it soon.",
+            });
+            form.reset();
+        }
     }
 
-    const testMi = (n: number) => {
+    const setFormRatingValue = (n: number) => {
         form.setValue('rating', n);
         form.trigger('rating');
     }
@@ -43,12 +59,16 @@ function ProductReviewForm() {
                 <form
                     onSubmit={form.handleSubmit(onSubmit)}
                 >
-                    <div>
-                        <span onClick={() => testMi(1)}>1</span>
-                        <span onClick={() => testMi(2)}>2</span>
-                        <span onClick={() => testMi(3)}>3</span>
-                        <span onClick={() => testMi(4)}>4</span>
-                        <span onClick={() => testMi(5)}>5</span>
+                    <div className="my-6">
+                        <label>Rating</label>
+                        <div className="flex mt-2">
+                            <Star className={`${form.getValues('rating') >= 1 ? 'text-amber-400' : ''}`} onClick={() => setFormRatingValue(1)} />
+                            <Star className={`${form.getValues('rating') >= 2 ? 'text-amber-400' : ''}`} onClick={() => setFormRatingValue(2)} />
+                            <Star className={`${form.getValues('rating') >= 3 ? 'text-amber-400' : ''}`} onClick={() => setFormRatingValue(3)} />
+                            <Star className={`${form.getValues('rating') >= 4 ? 'text-amber-400' : ''}`} onClick={() => setFormRatingValue(4)} />
+                            <Star className={`${form.getValues('rating') >= 5 ? 'text-amber-400' : ''}`} onClick={() => setFormRatingValue(5)} />
+                        </div>
+                        <p className="text-red-600 text-sm">{form.formState.errors?.rating?.message}</p>
                     </div>
                     <FormField
                         control={form.control}
@@ -105,8 +125,6 @@ function ProductReviewForm() {
                     <Button>Submit</Button>
                 </form>
             </Form>
-            <h1>{form.getValues('rating')}</h1>
-            <button onClick={() => console.log(form)}>georgescu</button>
         </div>
     );
 }
